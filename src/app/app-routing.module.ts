@@ -2,19 +2,25 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: "", redirectTo: "login", pathMatch: "full" },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: "login",
+    loadChildren: "./login/login.module#LoginPageModule"
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    path: "users",
+    loadChildren: "./users/user-routing.module#UserRoutingModule"
   },
   {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+    path: "menu",
+    loadChildren: "./menu/menu.module#MenuPageModule"
+  },
+  { path: "home", loadChildren: "./home/home.module#HomePageModule" },
+  {
+    path: "register",
+    loadChildren: "./register/register.module#RegisterPageModule"
+  },
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' }
 ];
 
 @NgModule({
